@@ -24,9 +24,6 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
-	private void Update() {
-	}
-
 	private void MovePlane() {
 		rb.velocity = -(transform.up) * speed;
 	}
