@@ -5,8 +5,8 @@ public class MissileScript : MonoBehaviour {
 	private GameObject player;
 	private Rigidbody rb;
 
-	private float rotationSpeed = 0.5f;
-	private float speed = 15f;
+	public float speed;
+	private float rotationSpeed = 1.2f;
 
 	private void Start() {
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -20,10 +20,7 @@ public class MissileScript : MonoBehaviour {
 		Vector3 direction = (player.transform.position - transform.position).normalized;
 		float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 		Quaternion rotateToTarget = Quaternion.Euler(90, angle, 0);
-		transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * rotationSpeed);
-		Vector3 deltaPosition = speed * direction * Time.deltaTime;
 
-		rb.MovePosition(transform.position + deltaPosition);
-		rb.MoveRotation(rotateToTarget);
+		transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * rotationSpeed);
 	}
 }
