@@ -22,5 +22,7 @@ public class MissileScript : MonoBehaviour {
 		Quaternion rotateToTarget = Quaternion.Euler(90, angle, 0);
 
 		transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * rotationSpeed);
+
+		Destroy(gameObject, 20f);
 	}
 }
