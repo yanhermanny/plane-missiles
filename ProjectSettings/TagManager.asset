@@ -7,6 +7,12 @@ TagManager:
   - LeftButton
   - RightButton
   - Enemy
+  - Border
+  - UpperBorder
+  - LowerBorder
+  - LeftBorder
+  - RightBorder
+  - Cloud
   layers:
   - Default
   - TransparentFX

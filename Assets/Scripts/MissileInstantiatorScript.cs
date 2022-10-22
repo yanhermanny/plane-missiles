@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InstantiatorScript : MonoBehaviour {
+public class MissileInstantiatorScript : MonoBehaviour {
 
 	public GameObject[] vetorPositions;
 	public GameObject[] vetorMissiles;
