@@ -19,11 +19,7 @@ public class MissileScript : MonoBehaviour {
 
 		rb.velocity = (transform.up) * speed;
 
-		time += Time.deltaTime;
-		if (time > 0.1f) {
-			InstantiateSmokeTrail();
-			time = 0f;
-		}
+		InstantiateSmokeTrail();
 
 		Vector3 direction = (player.transform.position - transform.position).normalized;
 		float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
@@ -35,6 +31,10 @@ public class MissileScript : MonoBehaviour {
 	}
 
 	private void InstantiateSmokeTrail() {
-		Instantiate(smokeTrail, this.transform.position, smokeTrail.transform.rotation);
+		time += Time.deltaTime;
+		if (time > 0.1f) {
+			Instantiate(smokeTrail, this.transform.position, smokeTrail.transform.rotation);
+			time = 0f;
+		}
 	}
 }
