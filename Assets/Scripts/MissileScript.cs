@@ -3,6 +3,7 @@ using UnityEngine;
 public class MissileScript : MonoBehaviour {
 
 	public GameObject smokeTrail;
+	public GameObject explosion;
 	private GameObject player;
 	private Rigidbody rb;
 
@@ -33,8 +34,16 @@ public class MissileScript : MonoBehaviour {
 	private void InstantiateSmokeTrail() {
 		time += Time.deltaTime;
 		if (time > 0.1f) {
-			Instantiate(smokeTrail, this.transform.position, smokeTrail.transform.rotation);
+			Instantiate(smokeTrail, transform.position, smokeTrail.transform.rotation);
 			time = 0f;
+		}
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.tag == "Enemy") {
+			Instantiate(explosion, transform.position, explosion.transform.rotation);
+			Destroy(other.gameObject);
+			Destroy(gameObject);
 		}
 	}
 }

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6589772542728318398}
   - component: {fileID: 6559919850286326786}
   - component: {fileID: 6568739190848215496}
-  - component: {fileID: -1992136520124319699}
   - component: {fileID: -4031222629067347407}
+  - component: {fileID: -733065013650427779}
+  - component: {fileID: -943066729037062081}
   m_Layer: 0
   m_Name: Missile-3
   m_TagString: Enemy
@@ -85,21 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-1992136520124319699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6591561369218909518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 891753124880e0f418733414dd851606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smokeTrail: {fileID: 3803646564379703939, guid: f2c6b127255b24d4c86e05cb61d28492,
-    type: 3}
-  speed: 45
 --- !u!54 &-4031222629067347407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,3 +102,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!136 &-733065013650427779
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591561369218909518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 9.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.65, z: 0}
+--- !u!114 &-943066729037062081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591561369218909518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891753124880e0f418733414dd851606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smokeTrail: {fileID: 3803646564379703939, guid: f2c6b127255b24d4c86e05cb61d28492,
+    type: 3}
+  explosion: {fileID: 2405056335010113621, guid: 82a6550abc17ba4439ded200bb9d470c,
+    type: 3}
+  speed: 45

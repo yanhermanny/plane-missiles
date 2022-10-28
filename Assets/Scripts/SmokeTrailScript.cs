@@ -8,7 +8,7 @@ public class SmokeTrailScript : MonoBehaviour {
 		mr.material.color = new Color(mr.material.color.r, mr.material.color.g, mr.material.color.b, mr.material.color.a - 0.003f);
 
 		if (mr.material.color.a <= 0) {
-			Destroy(gameObject, 0f);
+			Destroy(gameObject);
 		}
 	}
 }

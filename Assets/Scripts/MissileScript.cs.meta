@@ -3,7 +3,11 @@ guid: 891753124880e0f418733414dd851606
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - smokeTrail: {fileID: 3803646564379703939, guid: f2c6b127255b24d4c86e05cb61d28492,
+      type: 3}
+  - explosion: {fileID: 2405056335010113621, guid: 82a6550abc17ba4439ded200bb9d470c,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
