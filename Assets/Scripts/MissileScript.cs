@@ -45,5 +45,8 @@ public class MissileScript : MonoBehaviour {
 			Destroy(other.gameObject);
 			Destroy(gameObject);
 		}
+		else if (other.tag == "Player") {
+			// TODO: Morte do player
+		}
 	}
 }
