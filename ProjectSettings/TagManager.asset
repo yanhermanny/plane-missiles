@@ -13,6 +13,9 @@ TagManager:
   - LeftBorder
   - RightBorder
   - Cloud
+  - PlayButton
+  - PausedCanvas
+  - PauseButton
   layers:
   - Default
   - TransparentFX
