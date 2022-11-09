@@ -15,7 +15,7 @@ public class StarScript : MonoBehaviour {
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
 			Destroy(gameObject);
-			//TODO: Pontuação bônus
+			GameScript.AddPoints(10);
 		}
 	}
 }
