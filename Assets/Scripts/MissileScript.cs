@@ -3,7 +3,8 @@ using UnityEngine;
 public class MissileScript : MonoBehaviour {
 
 	public GameObject smokeTrail;
-	public GameObject explosion;
+	public GameObject missileExplosion;
+	public GameObject planeExplosion;
 	private GameObject player;
 	private Rigidbody rb;
 
@@ -41,12 +42,19 @@ public class MissileScript : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Enemy") {
-			Instantiate(explosion, transform.position, explosion.transform.rotation);
+			Instantiate(missileExplosion, transform.position, missileExplosion.transform.rotation);
 			Destroy(other.gameObject);
 			Destroy(gameObject);
+
+			GameScript.AddPoints(5);
 		}
 		else if (other.tag == "Player") {
-			// TODO: Morte do player
+			PlayerScript.SetSpeed(1f);
+			Instantiate(planeExplosion, player.transform.position, planeExplosion.transform.rotation);
+			Destroy(gameObject);
+			Destroy(other.gameObject, 2f);
+
+			GameScript.GameOver();
 		}
 	}
 }

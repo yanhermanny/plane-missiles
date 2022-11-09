@@ -1,44 +1,27 @@
-using System.Collections;
 using UnityEngine;
 
 public class GameScript : MonoBehaviour {
 
-	private static int timer;
 	private static bool gameOver;
-	private static int points;
+	private static int points = 0;
 
-	private void Start() {
-		timer = 0;
+	public static void AddPoints(int value) {
 		gameOver = false;
-		points = 0;
-
-		StartCoroutine(CountTimer());
+		points += value;
+		print("Points: " + points);
 	}
 
 	private void FixedUpdate() {
 		if (gameOver) {
-			Time.timeScale = 0;
-			points += timer;
+			// TODO: GAME OVER
 		}
-	}
-
-	public static void AddPoints(int value) {
-		points += value;
-		print("Points: " + points);
 	}
 
 	public static void GameOver() {
 		gameOver = true;
 	}
 
-	IEnumerator CountTimer() {
-		while (true) {
-			timer++;
-			yield return new WaitForSeconds(1);
-		}
-	}
-
-	public int getTimer() {
-		return timer;
+	public static bool GetGameOver() {
+		return gameOver;
 	}
 }
