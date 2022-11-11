@@ -4,18 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - LeftButton
-  - RightButton
   - Enemy
   - Border
-  - UpperBorder
-  - LowerBorder
-  - LeftBorder
-  - RightBorder
   - Cloud
-  - PlayButton
-  - PausedCanvas
-  - PauseButton
+  - UI
   layers:
   - Default
   - TransparentFX

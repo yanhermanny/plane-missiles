@@ -19,7 +19,7 @@ public class CloudInstantiator : MonoBehaviour {
 	}
 
 	private void MoveCloudToBorder(Transform cloud) {
-		Transform borderOposto = GameObject.FindGameObjectWithTag(borderMap[this.tag]).transform;
+		Transform borderOposto = GameObject.Find(borderMap[this.name]).transform;
 		Transform position = borderOposto.GetChild(Random.Range(0, borderOposto.childCount));
 
 		cloud.position = position.position;

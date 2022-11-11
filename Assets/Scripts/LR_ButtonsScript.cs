@@ -7,19 +7,19 @@ public class LR_ButtonsScript : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	public static bool rButtonPressed;
 
 	public void OnPointerDown(PointerEventData eventData) {
-		if (this.gameObject.CompareTag("LeftButton")) {
+		if (this.gameObject.name.Equals("LeftButton")) {
 			lButtonPressed = true;
 		}
-		else if (this.gameObject.CompareTag("RightButton")) {
+		else if (this.gameObject.name.Equals("RightButton")) {
 			rButtonPressed = true;
 		}
 	}
 
 	public void OnPointerUp(PointerEventData eventData) {
-		if (this.gameObject.CompareTag("LeftButton")) {
+		if (this.gameObject.name.Equals("LeftButton")) {
 			lButtonPressed = false;
 		}
-		else if (this.gameObject.CompareTag("RightButton")) {
+		else if (this.gameObject.name.Equals("RightButton")) {
 			rButtonPressed = false;
 		}
 	}

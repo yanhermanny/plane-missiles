@@ -16,7 +16,7 @@ public class MissileScript : MonoBehaviour {
 	private float rotationSpeed = 1.2f;
 
 	private void Start() {
-		player = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.Find("Player");
 		rb = this.GetComponent<Rigidbody>();
 		animator = this.GetComponent<Animator>();
 

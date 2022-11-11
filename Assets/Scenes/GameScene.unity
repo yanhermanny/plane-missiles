@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 58877316}
   m_Layer: 5
   m_Name: RightButton
-  m_TagString: RightButton
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 500595087}
   m_Layer: 5
   m_Name: LeftButton
-  m_TagString: LeftButton
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 741548937}
   m_Layer: 5
   m_Name: PausedCanvas
-  m_TagString: PausedCanvas
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1518,7 +1518,7 @@ GameObject:
   - component: {fileID: 925871608}
   m_Layer: 5
   m_Name: PlayerControlsCanvas
-  m_TagString: GameController
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 974371909}
   m_Layer: 0
   m_Name: LeftBorder
-  m_TagString: LeftBorder
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1856,7 +1856,7 @@ GameObject:
   - component: {fileID: 1021933659}
   m_Layer: 5
   m_Name: PlayButton
-  m_TagString: PlayButton
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2019,7 +2019,7 @@ GameObject:
   - component: {fileID: 1038164694}
   m_Layer: 5
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2368,7 +2368,7 @@ GameObject:
   - component: {fileID: 1175415092}
   m_Layer: 0
   m_Name: LowerBorder
-  m_TagString: LowerBorder
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2751,7 +2751,7 @@ GameObject:
   - component: {fileID: 1385097010}
   m_Layer: 5
   m_Name: PausedText
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2889,7 +2889,7 @@ GameObject:
   - component: {fileID: 1417022649}
   m_Layer: 0
   m_Name: UpperBorder
-  m_TagString: UpperBorder
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3269,7 +3269,7 @@ GameObject:
   - component: {fileID: 1733198645}
   m_Layer: 5
   m_Name: PauseButton
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3525,7 +3525,7 @@ GameObject:
   - component: {fileID: 1839472444}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3811,7 +3811,7 @@ GameObject:
   - component: {fileID: 2088583568}
   m_Layer: 0
   m_Name: RightBorder
-  m_TagString: RightBorder
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
