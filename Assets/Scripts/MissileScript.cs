@@ -7,14 +7,21 @@ public class MissileScript : MonoBehaviour {
 	public GameObject planeExplosion;
 	private GameObject player;
 	private Rigidbody rb;
+	private Animator animator;
 
+	private int timerInicial;
 	public float speed;
 	private float rotationSpeed = 1.2f;
 	private float time = 0f;
 
+
 	private void Start() {
 		player = GameObject.FindGameObjectWithTag("Player");
 		rb = GetComponent<Rigidbody>();
+
+		animator = GetComponent<Animator>();
+
+		timerInicial = TimerScript.GetTimer();
 	}
 
 	private void FixedUpdate() {
@@ -29,7 +36,10 @@ public class MissileScript : MonoBehaviour {
 
 		transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * rotationSpeed);
 
-		Destroy(gameObject, 20f);
+		if (TimerScript.GetTimer() - timerInicial > 20f) {
+			animator.SetBool("EndMissile", true);
+			Destroy(gameObject, 3f);
+		}
 	}
 
 	private void InstantiateSmokeTrail() {

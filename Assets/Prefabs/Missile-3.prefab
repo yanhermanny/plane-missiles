@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6568739190848215496}
   - component: {fileID: -4031222629067347407}
   - component: {fileID: -733065013650427779}
+  - component: {fileID: 2379560703022499712}
   - component: {fileID: -943066729037062081}
   m_Layer: 0
   m_Name: Missile-3
@@ -116,6 +117,26 @@ CapsuleCollider:
   m_Height: 9.2
   m_Direction: 1
   m_Center: {x: 0, y: 0.65, z: 0}
+--- !u!95 &2379560703022499712
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591561369218909518}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb6f34bd7bb3a374aa2780064c8711fb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-943066729037062081
 MonoBehaviour:
   m_ObjectHideFlags: 0
