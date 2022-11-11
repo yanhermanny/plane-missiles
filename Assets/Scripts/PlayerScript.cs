@@ -9,11 +9,11 @@ public class PlayerScript : MonoBehaviour {
 	private Vector3 angle = new(0, 2f, 0);
 
 	private void Start() {
-		rb = GetComponent<Rigidbody>();
+		rb = this.GetComponent<Rigidbody>();
 	}
 
 	private void FixedUpdate() {
-		MovePlane();
+		MoveForward();
 
 		if (LR_ButtonsScript.lButtonPressed) {
 			TurnPlane(-angle);
@@ -24,12 +24,12 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
-	private void MovePlane() {
-		rb.velocity = -(transform.up) * speed;
+	private void MoveForward() {
+		rb.velocity = -(this.transform.up) * speed;
 	}
 
-	public void TurnPlane(Vector3 angle) {
-		transform.Rotate(angle, Space.World);
+	private void TurnPlane(Vector3 angle) {
+		this.transform.Rotate(angle, Space.World);
 	}
 
 	public static void SetSpeed(float value) {

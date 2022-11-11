@@ -14,10 +14,14 @@ public class CloudInstantiator : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Cloud") {
-			Transform borderOposto = GameObject.FindGameObjectWithTag(borderMap[this.tag]).transform;
-			Transform position = borderOposto.GetChild(Random.Range(0, borderOposto.childCount));
-
-			other.transform.position = position.position;
+			MoveCloudToBorder(other.transform);
 		}
+	}
+
+	private void MoveCloudToBorder(Transform cloud) {
+		Transform borderOposto = GameObject.FindGameObjectWithTag(borderMap[this.tag]).transform;
+		Transform position = borderOposto.GetChild(Random.Range(0, borderOposto.childCount));
+
+		cloud.position = position.position;
 	}
 }

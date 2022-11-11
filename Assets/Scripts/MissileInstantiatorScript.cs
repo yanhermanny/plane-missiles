@@ -10,16 +10,20 @@ public class MissileInstantiatorScript : MonoBehaviour {
 
 	private void Start() {
 		startTimer = TimerScript.GetTimer();
-		interval = 5;
+		interval = 2;
 	}
 
 	private void FixedUpdate() {
-		if (TimerScript.GetTimer() - startTimer >= interval) {
-			GameObject missile = vetorMissiles[Random.Range(0, vetorMissiles.Length)];
-			Instantiate(missile, vetorPositions[Random.Range(0, vetorPositions.Length)].transform.position, missile.transform.rotation);
+		if (TimerScript.GetTimer() - startTimer >= interval && !GameScript.gameOver) {
+			InstantiateMissile();
 
 			interval = Random.Range(6, 10);
 			startTimer = TimerScript.GetTimer();
 		}
+	}
+
+	private void InstantiateMissile() {
+		GameObject missile = vetorMissiles[Random.Range(0, vetorMissiles.Length)];
+		Instantiate(missile, vetorPositions[Random.Range(0, vetorPositions.Length)].transform.position, missile.transform.rotation);
 	}
 }

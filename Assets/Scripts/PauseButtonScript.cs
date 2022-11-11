@@ -10,13 +10,13 @@ public class PauseButtonScript : MonoBehaviour {
 		pausedCanvas = GameObject.Find("PausedCanvas");
 		pausedCanvas.SetActive(false);
 
-		pauseButton = GetComponent<Button>();
+		pauseButton = this.GetComponent<Button>();
 		pauseButton.onClick.AddListener(ButtonClick);
 	}
 
 	private void ButtonClick() {
 		pausedCanvas.SetActive(true);
-		gameObject.SetActive(false);
+		this.gameObject.SetActive(false);
 		Time.timeScale = 0;
 	}
 }

@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class GameScript : MonoBehaviour {
 
-	private static bool gameOver;
-	private static int points = 0;
+	public static bool gameOver;
+	private static int points ;
 
-	public static void AddPoints(int value) {
+	private static void Start() {
 		gameOver = false;
-		points += value;
-		print("Points: " + points);
+		points = 0;
 	}
 
 	private void FixedUpdate() {
@@ -21,7 +20,8 @@ public class GameScript : MonoBehaviour {
 		gameOver = true;
 	}
 
-	public static bool GetGameOver() {
-		return gameOver;
+	public static void AddPoints(int value) {
+		points += value;
+		print("Points: " + points);
 	}
 }

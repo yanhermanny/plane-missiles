@@ -7,13 +7,13 @@ public class CameraScript : MonoBehaviour {
 	private Vector3 distance;
 
 	private void Start() {
-		distance = transform.position - player.position;
+		distance = this.transform.position - player.position;
 	}
 
 	private void Update() {
 		if (player != null) {
 			Vector3 position = player.position + distance;
-			transform.position = position;
+			this.transform.position = position;
 		}
 	}
 }

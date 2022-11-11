@@ -15,10 +15,14 @@ public class StarInstantiatorScript : MonoBehaviour {
 
 	private void FixedUpdate() {
 		if (TimerScript.GetTimer() - startTimer >= interval) {
-			Instantiate(star, vetorPositions[Random.Range(0, vetorPositions.Length)].transform.position, star.transform.rotation);
+			InstantiateStar();
 
 			interval = Random.Range(45, 60);
 			startTimer = TimerScript.GetTimer();
 		}
+	}
+
+	private void InstantiateStar() {
+		Instantiate(star, vetorPositions[Random.Range(0, vetorPositions.Length)].transform.position, star.transform.rotation);
 	}
 }

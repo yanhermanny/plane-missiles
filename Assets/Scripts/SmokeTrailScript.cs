@@ -3,6 +3,6 @@ using UnityEngine;
 public class SmokeTrailScript : MonoBehaviour {
 
 	private void FixedUpdate() {
-		Destroy(gameObject, 10f);
+		Destroy(this.gameObject, 10f);
 	}
 }

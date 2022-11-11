@@ -12,13 +12,13 @@ public class StarScript : MonoBehaviour {
 
 	private void FixedUpdate() {
 		if (TimerScript.GetTimer() - startTimer >= interval) {
-			Destroy(gameObject);
+			Destroy(this.gameObject);
 		}
 	}
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
-			Destroy(gameObject);
+			Destroy(this.gameObject);
 			GameScript.AddPoints(10);
 		}
 	}

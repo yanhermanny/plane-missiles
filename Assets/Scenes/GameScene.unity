@@ -1190,7 +1190,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685785233}
-  - component: {fileID: 685785232}
   - component: {fileID: 685785234}
   m_Layer: 0
   m_Name: MissileInstantiatorArea
@@ -1199,14 +1198,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!33 &685785232
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685785229}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &685785233
 Transform:
   m_ObjectHideFlags: 0
@@ -1708,7 +1699,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974371903}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1763,10 +1754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a175fa0d87a74c94880f247d57145dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vetorPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!54 &974371909
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2425,7 +2412,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175415086}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2480,10 +2467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a175fa0d87a74c94880f247d57145dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vetorPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!54 &1175415092
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2950,7 +2933,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417022643}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3005,10 +2988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a175fa0d87a74c94880f247d57145dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vetorPositions:
-  - {fileID: 1485964491}
-  - {fileID: 1177391942}
-  - {fileID: 1312457259}
 --- !u!54 &1417022649
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3876,7 +3855,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088583562}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3931,10 +3910,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a175fa0d87a74c94880f247d57145dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vetorPositions:
-  - {fileID: 1814873531}
-  - {fileID: 1601650755}
-  - {fileID: 542368068}
 --- !u!54 &2088583568
 Rigidbody:
   m_ObjectHideFlags: 0
