@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class StarScript : MonoBehaviour {
 
-	private float time = 0f;
+	private float startTimer;
+	private int interval;
+
+	private void Start() {
+		startTimer = TimerScript.GetTimer();
+		interval = 20;
+	}
 
 	private void FixedUpdate() {
-		time += Time.deltaTime;
-
-		if (time > 20f) {
+		if (TimerScript.GetTimer() - startTimer >= interval) {
 			Destroy(gameObject);
 		}
 	}

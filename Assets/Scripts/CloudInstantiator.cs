@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CloudInstantiator : MonoBehaviour {
 
-	public GameObject[] vetorPositions;
 	private Dictionary<string, string> borderMap = new Dictionary<string, string>();
 
 	private void Start() {
