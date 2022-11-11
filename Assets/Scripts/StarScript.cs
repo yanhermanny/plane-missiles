@@ -10,7 +10,7 @@ public class StarScript : MonoBehaviour {
 		interval = 20;
 	}
 
-	private void FixedUpdate() {
+	private void Update() {
 		if (TimerScript.GetTimer() - startTimer >= interval) {
 			Destroy(this.gameObject);
 		}

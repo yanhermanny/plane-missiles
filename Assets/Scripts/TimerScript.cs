@@ -22,7 +22,7 @@ public class TimerScript : MonoBehaviour {
 		}
 	}
 
-	private void FixedUpdate() {
+	private void Update() {
 		timerText.text = MontaTimerDisplay();
 	}
 

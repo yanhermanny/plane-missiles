@@ -13,7 +13,7 @@ public class StarInstantiatorScript : MonoBehaviour {
 		interval = 45;
 	}
 
-	private void FixedUpdate() {
+	private void Update() {
 		if (TimerScript.GetTimer() - startTimer >= interval) {
 			InstantiateStar();
 

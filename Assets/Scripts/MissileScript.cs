@@ -26,7 +26,9 @@ public class MissileScript : MonoBehaviour {
 
 	private void FixedUpdate() {
 		MoveForward();
+	}
 
+	private void Update() {
 		if (!GameScript.gameOver) {
 			AimToPlayer();
 		}

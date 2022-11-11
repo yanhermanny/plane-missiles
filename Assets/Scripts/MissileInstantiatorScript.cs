@@ -13,7 +13,7 @@ public class MissileInstantiatorScript : MonoBehaviour {
 		interval = 2;
 	}
 
-	private void FixedUpdate() {
+	private void Update() {
 		if (TimerScript.GetTimer() - startTimer >= interval && !GameScript.gameOver) {
 			InstantiateMissile();
 

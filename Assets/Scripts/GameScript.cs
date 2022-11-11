@@ -10,7 +10,7 @@ public class GameScript : MonoBehaviour {
 		points = 0;
 	}
 
-	private void FixedUpdate() {
+	private void Update() {
 		if (gameOver) {
 			// TODO: GAME OVER
 		}
