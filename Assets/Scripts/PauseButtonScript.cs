@@ -3,13 +3,10 @@ using UnityEngine.UI;
 
 public class PauseButtonScript : MonoBehaviour {
 
-	private GameObject pausedCanvas;
+	public GameObject pausedCanvas;
 	private Button pauseButton;
 
 	private void Start() {
-		pausedCanvas = GameObject.Find("PausedCanvas");
-		pausedCanvas.SetActive(false);
-
 		pauseButton = this.GetComponent<Button>();
 		pauseButton.onClick.AddListener(ButtonClick);
 	}

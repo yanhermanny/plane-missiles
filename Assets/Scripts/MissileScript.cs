@@ -5,6 +5,7 @@ public class MissileScript : MonoBehaviour {
 	public GameObject smokeTrail;
 	public GameObject missileExplosion;
 	public GameObject planeExplosion;
+
 	private GameObject player;
 	private Rigidbody rb;
 	private Animator animator;

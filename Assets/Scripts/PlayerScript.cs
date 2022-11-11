@@ -14,9 +14,7 @@ public class PlayerScript : MonoBehaviour {
 
 	private void FixedUpdate() {
 		MoveForward();
-	}
 
-	private void Update() {
 		if (LR_ButtonsScript.lButtonPressed) {
 			TurnPlane(-angle);
 		}

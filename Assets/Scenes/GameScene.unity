@@ -2006,6 +2006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d68fe12a05f714487fa8a78f4881ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausedCanvas: {fileID: 741548935}
+  pauseButton: {fileID: 1733198635}
 --- !u!1 &1038164690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,6 +3421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d1de5d0afe09b49b39bdbd5492a6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausedCanvas: {fileID: 741548935}
 --- !u!1 &1739111678
 GameObject:
   m_ObjectHideFlags: 0

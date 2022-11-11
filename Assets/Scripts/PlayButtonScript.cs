@@ -3,14 +3,11 @@ using UnityEngine.UI;
 
 public class PlayButtonScript : MonoBehaviour {
 
-	private GameObject pausedCanvas;
+	public GameObject pausedCanvas;
+	public GameObject pauseButton;
 	private Button playButton;
-	private GameObject pauseButton;
 
 	private void Start() {
-		pausedCanvas = GameObject.Find("PausedCanvas");
-		pauseButton = GameObject.Find("PauseButton");
-
 		playButton = GetComponent<Button>();
 		playButton.onClick.AddListener(ButtonClick);
 	}
