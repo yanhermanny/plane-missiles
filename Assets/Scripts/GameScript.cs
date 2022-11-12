@@ -9,17 +9,25 @@ public class GameScript : MonoBehaviour {
 	private static int starsCount;
 	private static int points ;
 
+	private float gameOverTimer;
+
 	private void Start() {
 		gameOver = false;
 		starsCount = 0;
 		points = 0;
+		gameOverTimer = 0f;
 	}
 
 	private void Update() {
 		starCountText.text = string.Format("x {0:00}", starsCount);
 
 		if (gameOver) {
-			// TODO: GAME OVER
+			gameOverTimer = TimerScript.GetTimer();
+
+			if (TimerScript.GetTimer() - gameOverTimer >= 3) {
+				Time.timeScale = 0;
+				// TODO: Tela de Game Over
+			}
 		}
 	}
 
