@@ -6,7 +6,6 @@ public class TimerScript : MonoBehaviour {
 
 	private static float timer;
 	private TextMeshProUGUI timerText;
-	private string timerString;
 
 	private void Start() {
 		timer = 0;
@@ -16,7 +15,7 @@ public class TimerScript : MonoBehaviour {
 	}
 
 	private IEnumerator CountTimer() {
-		while (!GameScript.gameOver) {
+		while (!GameScript.isGameOver) {
 			timer += 0.1f;
 			yield return new WaitForSeconds(0.1f);
 		}

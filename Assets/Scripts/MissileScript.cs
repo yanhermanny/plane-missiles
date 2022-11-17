@@ -30,7 +30,7 @@ public class MissileScript : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (!GameScript.gameOver) {
+		if (!GameScript.isGameOver) {
 			AimToPlayer();
 		}
 
@@ -71,15 +71,11 @@ public class MissileScript : MonoBehaviour {
 			Destroy(other.gameObject);
 			Destroy(this.gameObject);
 
-			GameScript.AddPoints(5);
+			GameScript.AddMissilesDestroyed();
 		}
 		else if (other.tag == "Player") {
-			PlayerScript.SetSpeed(1f);
-			Instantiate(planeExplosion, player.transform.position, planeExplosion.transform.rotation);
 			Destroy(this.gameObject);
-			Destroy(other.gameObject, 2f);
-
-			GameScript.GameOver();
+			GameScript.isGameOver = true;
 		}
 	}
 }

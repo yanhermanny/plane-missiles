@@ -3948,6 +3948,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starCountText: {fileID: 1893039426}
+  playerExplosion: {fileID: 7004131692950140703, guid: ac573e9375c0e484aa37ffbccf7a40d5,
+    type: 3}
 --- !u!1 &2053455234
 GameObject:
   m_ObjectHideFlags: 0

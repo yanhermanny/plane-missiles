@@ -14,7 +14,7 @@ public class MissileInstantiatorScript : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (TimerScript.GetTimer() - startTimer >= interval && !GameScript.gameOver) {
+		if (TimerScript.GetTimer() - startTimer >= interval && !GameScript.isGameOver) {
 			InstantiateMissile();
 
 			interval = Random.Range(6, 10);
