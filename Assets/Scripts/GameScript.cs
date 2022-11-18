@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameScript : MonoBehaviour {
 
@@ -17,6 +17,8 @@ public class GameScript : MonoBehaviour {
 	private int totalPoints;
 
 	private void Start() {
+		Time.timeScale = 0;
+
 		isGameOver = false;
 		starsCount = 0;
 		missilesDestroyed = 0;
@@ -35,6 +37,7 @@ public class GameScript : MonoBehaviour {
 			print("starPoints: " + starsPoints);
 			print("bonusPoints: " + bonusPoints);
 			print("totalPoints: " + totalPoints);
+			// TODO: GameOver Canvas
 		}
 	}
 
@@ -50,5 +53,17 @@ public class GameScript : MonoBehaviour {
 		starsPoints = starsCount * 10;
 		bonusPoints = (int) (missilesDestroyed * 2.5f);
 		totalPoints = timerPoints + starsPoints + bonusPoints;
+	}
+
+	public static void StartGame() {
+		Time.timeScale = 1;
+	}
+
+	public static void PauseGame() {
+		Time.timeScale = 0;
+	}
+
+	public static void GoHome() {
+		SceneManager.LoadScene("GameScene");
 	}
 }
