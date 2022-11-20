@@ -65,7 +65,7 @@ public class MissileScript : MonoBehaviour {
 	}
 
 	private void EndMissile() {
-		animator.SetBool("EndMissile", true);
+		animator.SetTrigger("endMissile");
 		Destroy(this.gameObject, 3f);
 	}
 

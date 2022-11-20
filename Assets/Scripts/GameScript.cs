@@ -7,6 +7,9 @@ public class GameScript : MonoBehaviour {
 	public GameObject player;
 	public GameObject playerExplosion;
 	public TextMeshProUGUI starCountText;
+	public Animator bonusAlertAnimator;
+
+	private static bool addBonusText;
 
 	public static bool isGameOver;
 	public static bool isPaused;
@@ -23,6 +26,7 @@ public class GameScript : MonoBehaviour {
 
 		isGameOver = false;
 		isPaused = true;
+		addBonusText = false;
 
 		starsCount = 0;
 		missilesDestroyed = 0;
@@ -33,6 +37,11 @@ public class GameScript : MonoBehaviour {
 
 		if (!isGameOver) {
 			timerPoints = (int) TimerScript.GetTimer();
+
+			if (addBonusText) {
+				bonusAlertAnimator.SetTrigger("addBonus");
+				addBonusText = false;
+			}
 		} else {
 			if (player != null) {
 				Instantiate(playerExplosion, player.transform.position, playerExplosion.transform.rotation);
@@ -48,6 +57,7 @@ public class GameScript : MonoBehaviour {
 
 	public static void AddMissilesDestroyed() {
 		missilesDestroyed++;
+		addBonusText = true;
 	}
 
 	public static void AddStar() {
