@@ -1,10 +1,10 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameScript : MonoBehaviour {
 
-	public GameObject gameOverPanel;
+	public GameObject player;
 	public GameObject playerExplosion;
 	public TextMeshProUGUI starCountText;
 
@@ -13,7 +13,7 @@ public class GameScript : MonoBehaviour {
 	private static int missilesDestroyed;
 
 	private int timerPoints;
-	private int starsPoints;
+	private int starPoints;
 	private int bonusPoints;
 	private int totalPoints;
 
@@ -28,17 +28,18 @@ public class GameScript : MonoBehaviour {
 	private void Update() {
 		starCountText.text = string.Format("x {0:00}", starsCount);
 
-		if (isGameOver) {
+		if (!isGameOver) {
 			timerPoints = (int) TimerScript.GetTimer();
-			Instantiate(playerExplosion, this.transform.position, playerExplosion.transform.rotation);
-			Destroy(this.gameObject, 0.2f);
+		} else {
+			if (player != null) {
+				Instantiate(playerExplosion, player.transform.position, playerExplosion.transform.rotation);
+				Destroy(player, 0.2f);
+			}
 
 			CalculatePoints();
-			print("timerPoints: " + timerPoints);
-			print("starPoints: " + starsPoints);
-			print("bonusPoints: " + bonusPoints);
-			print("totalPoints: " + totalPoints);
-			// TODO: GameOver Canvas
+			if (TimerScript.GetTimer() - timerPoints >= 2) {
+				CanvasScript.ShowGameOver(timerPoints, starPoints, bonusPoints, totalPoints);
+			}
 		}
 	}
 
@@ -51,9 +52,9 @@ public class GameScript : MonoBehaviour {
 	}
 
 	private void CalculatePoints() {
-		starsPoints = starsCount * 10;
+		starPoints = starsCount * 10;
 		bonusPoints = (int) (missilesDestroyed * 2.5f);
-		totalPoints = timerPoints + starsPoints + bonusPoints;
+		totalPoints = timerPoints + starPoints + bonusPoints;
 	}
 
 	public static void StartGame() {

@@ -31,8 +31,8 @@ public class TimerScript : MonoBehaviour {
 		int min = 0;
 		int sec = 0;
 
-		min = (int) timer / 60;
-		sec = (int) timer % 60;
+		min = (int) (timer / 60);
+		sec = (int) (timer % 60);
 
 		return string.Format("{0:00}:{1:00}", min, sec);
 	}
