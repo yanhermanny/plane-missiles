@@ -10,7 +10,7 @@ public class StarInstantiatorScript : MonoBehaviour {
 
 	private void Start() {
 		startTimer = TimerScript.GetTimer();
-		interval = 45;
+		interval = 20;
 	}
 
 	private void Update() {
