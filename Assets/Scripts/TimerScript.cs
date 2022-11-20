@@ -16,7 +16,9 @@ public class TimerScript : MonoBehaviour {
 
 	private IEnumerator CountTimer() {
 		while (true) {
-			timer += 0.1f;
+			if (!GameScript.isPaused) {
+				timer += 0.1f;
+			}
 			yield return new WaitForSeconds(0.1f);
 		}
 	}

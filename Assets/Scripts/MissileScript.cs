@@ -26,21 +26,25 @@ public class MissileScript : MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
-		MoveForward();
+		if (!GameScript.isPaused) {
+			MoveForward();
+		}
 	}
 
 	private void Update() {
-		if (!GameScript.isGameOver) {
-			AimToPlayer();
-		}
+		if (!GameScript.isPaused) {
+			if (!GameScript.isGameOver) {
+				AimToPlayer();
+			}
 
-		if (TimerScript.GetTimer() - startTimerSmokeTrail >= 0.05f) {
-			InstantiateSmokeTrail();
-			startTimerSmokeTrail = TimerScript.GetTimer();
-		}
+			if (TimerScript.GetTimer() - startTimerSmokeTrail >= 0.05f) {
+				InstantiateSmokeTrail();
+				startTimerSmokeTrail = TimerScript.GetTimer();
+			}
 
-		if (TimerScript.GetTimer() - startTimerMissile >= 20) {
-			EndMissile();
+			if (TimerScript.GetTimer() - startTimerMissile >= 20) {
+				EndMissile();
+			}
 		}
 	}
 

@@ -9,6 +9,7 @@ public class GameScript : MonoBehaviour {
 	public TextMeshProUGUI starCountText;
 
 	public static bool isGameOver;
+	public static bool isPaused;
 	private static int starsCount;
 	private static int missilesDestroyed;
 
@@ -18,9 +19,11 @@ public class GameScript : MonoBehaviour {
 	private int totalPoints;
 
 	private void Start() {
-		Time.timeScale = 0;
+		Time.timeScale = 1;
 
 		isGameOver = false;
+		isPaused = true;
+
 		starsCount = 0;
 		missilesDestroyed = 0;
 	}
@@ -58,10 +61,12 @@ public class GameScript : MonoBehaviour {
 	}
 
 	public static void StartGame() {
+		isPaused = false;
 		Time.timeScale = 1;
 	}
 
 	public static void PauseGame() {
+		isPaused = true;
 		Time.timeScale = 0;
 	}
 

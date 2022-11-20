@@ -13,7 +13,9 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
-		MoveForward();
+		if (!GameScript.isPaused) {
+			MoveForward();
+		}
 
 		if (LR_ButtonsScript.lButtonPressed) {
 			TurnPlane(-angle);

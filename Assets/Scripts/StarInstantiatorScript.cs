@@ -14,7 +14,7 @@ public class StarInstantiatorScript : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (!GameScript.isGameOver && (TimerScript.GetTimer() - startTimer >= interval)) {
+		if (!GameScript.isPaused && !GameScript.isGameOver && (TimerScript.GetTimer() - startTimer >= interval)) {
 			InstantiateStar();
 
 			interval = Random.Range(45, 60);
