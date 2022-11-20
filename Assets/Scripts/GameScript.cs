@@ -40,7 +40,7 @@ public class GameScript : MonoBehaviour {
 			}
 
 			CalculatePoints();
-			if (TimerScript.GetTimer() - timerPoints >= 3) {
+			if (TimerScript.GetTimer() - timerPoints >= 2.5f) {
 				CanvasScript.ShowGameOver(timerPoints, starPoints, bonusPoints, totalPoints);
 			}
 		}

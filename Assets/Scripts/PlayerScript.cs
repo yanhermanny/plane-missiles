@@ -4,12 +4,14 @@ public class PlayerScript : MonoBehaviour {
 
 	public GameObject propBlured;
 	private Rigidbody rb;
+	private Animator animator;
 
 	private static float speed = 30f;
 	private Vector3 angle = new(0, 2f, 0);
 
 	private void Start() {
 		rb = this.GetComponent<Rigidbody>();
+		animator = this.GetComponent<Animator>();
 	}
 
 	private void FixedUpdate() {
@@ -18,11 +20,17 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		if (LR_ButtonsScript.lButtonPressed) {
+			animator.SetBool("isTurningLeft", true);
 			TurnPlane(-angle);
+		} else {
+			animator.SetBool("isTurningLeft", false);
 		}
 
 		if (LR_ButtonsScript.rButtonPressed) {
+			animator.SetBool("isTurningRight", true);
 			TurnPlane(angle);
+		} else {
+			animator.SetBool("isTurningRight", false);
 		}
 	}
 
