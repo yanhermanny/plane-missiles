@@ -15,14 +15,16 @@ public class TimerScript : MonoBehaviour {
 	}
 
 	private IEnumerator CountTimer() {
-		while (!GameScript.isGameOver) {
+		while (true) {
 			timer += 0.1f;
 			yield return new WaitForSeconds(0.1f);
 		}
 	}
 
 	private void Update() {
-		timerText.text = MontaTimerDisplay();
+		if (!GameScript.isGameOver) {
+			timerText.text = MontaTimerDisplay();
+		}
 	}
 
 	private string MontaTimerDisplay() {

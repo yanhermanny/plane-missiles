@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class CanvasScript : MonoBehaviour {
 
-	public GameObject homeCanvas;
-	public GameObject playerControlsCanvas;
-	public GameObject hudCanvas;
-	public GameObject pausedCanvas;
+	public GameObject homePanel;
+	public GameObject playerControlsPanel;
+	public GameObject hudPanel;
+	public GameObject pausePanel;
+	public GameObject scoresPanel;
 
     private void Start() {
-		homeCanvas.SetActive(true);
-		playerControlsCanvas.SetActive(false);
-		hudCanvas.SetActive(false);
-		pausedCanvas.SetActive(false);
+		homePanel.SetActive(true);
+		playerControlsPanel.SetActive(false);
+		hudPanel.SetActive(false);
+		pausePanel.SetActive(false);
     }
 
 	public void StartButtonClick() {
-		homeCanvas.SetActive(false);
-		playerControlsCanvas.SetActive(true);
-		hudCanvas.SetActive(true);
+		homePanel.SetActive(false);
+		playerControlsPanel.SetActive(true);
+		hudPanel.SetActive(true);
 
 		GameScript.StartGame();
 	}
@@ -27,15 +28,15 @@ public class CanvasScript : MonoBehaviour {
 	}
 
 	public void PauseButtonClick() {
-		pausedCanvas.SetActive(true);
-		playerControlsCanvas.SetActive(false);
+		pausePanel.SetActive(true);
+		playerControlsPanel.SetActive(false);
 
 		GameScript.PauseGame();
 	}
 
 	public void UnpauseButtonClick() {
-		pausedCanvas.SetActive(false);
-		playerControlsCanvas.SetActive(true);
+		pausePanel.SetActive(false);
+		playerControlsPanel.SetActive(true);
 
 		GameScript.StartGame();
 	}

@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class GameScript : MonoBehaviour {
 
-	public TextMeshProUGUI starCountText;
+	public GameObject gameOverPanel;
 	public GameObject playerExplosion;
+	public TextMeshProUGUI starCountText;
 
 	public static bool isGameOver;
 	private static int starsCount;
