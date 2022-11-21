@@ -37,7 +37,7 @@ public class CanvasScript : MonoBehaviour {
 			timerPointsText.text = "+" + timerPoints.ToString();
 			starPointsText.text = "+" + starPoints.ToString();
 			bonusPointsText.text = "+" + bonusPoints.ToString();
-			totalPointsText.text = "+" + totalPoints.ToString();
+			totalPointsText.text = totalPoints.ToString();
 
 			playerControlsPanel.SetActive(false);
 			gameOverPanel.SetActive(true);

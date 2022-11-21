@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour {
 	private Rigidbody rb;
 	private Animator animator;
 
-	private static float speed = 30f;
+	private float speed = 30f;
 	private Vector3 angle = new(0, 2f, 0);
 
 	private void Start() {
@@ -40,9 +40,5 @@ public class PlayerScript : MonoBehaviour {
 
 	private void TurnPlane(Vector3 angle) {
 		this.transform.Rotate(angle, Space.World);
-	}
-
-	public static void SetSpeed(float value) {
-		speed = value;
 	}
 }
