@@ -149,11 +149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891753124880e0f418733414dd851606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   smokeTrail: {fileID: 3803646564379703939, guid: f2c6b127255b24d4c86e05cb61d28492,
     type: 3}
   missileExplosion: {fileID: 2405056335010113621, guid: 82a6550abc17ba4439ded200bb9d470c,
     type: 3}
   planeExplosion: {fileID: 7004131692950140703, guid: ac573e9375c0e484aa37ffbccf7a40d5,
     type: 3}
-  speed: 35
+  speed: 45
+  rotationSpeed: 1.8

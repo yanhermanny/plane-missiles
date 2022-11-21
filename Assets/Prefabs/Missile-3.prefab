@@ -155,4 +155,5 @@ MonoBehaviour:
     type: 3}
   planeExplosion: {fileID: 7004131692950140703, guid: ac573e9375c0e484aa37ffbccf7a40d5,
     type: 3}
-  speed: 45
+  speed: 65
+  rotationSpeed: 1.2

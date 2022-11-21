@@ -6,8 +6,8 @@ public class PlayerScript : MonoBehaviour {
 	private Rigidbody rb;
 	private Animator animator;
 
-	private float speed = 30f;
-	private Vector3 angle = new(0, 2f, 0);
+	private float speed = 35f;
+	private Vector3 angle = new(0, 2.5f, 0);
 
 	private void Start() {
 		rb = this.GetComponent<Rigidbody>();

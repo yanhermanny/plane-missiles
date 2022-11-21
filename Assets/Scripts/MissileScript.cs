@@ -10,11 +10,11 @@ public class MissileScript : MonoBehaviour {
 	private Rigidbody rb;
 	private Animator animator;
 
+	public float speed;
+	public float rotationSpeed;
+
 	private float startTimerSmokeTrail;
 	private float startTimerMissile;
-
-	public float speed;
-	private float rotationSpeed = 1.2f;
 
 	private void Start() {
 		player = GameObject.Find("Player");
