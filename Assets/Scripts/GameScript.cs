@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,10 +10,15 @@ public class GameScript : MonoBehaviour {
 	public TextMeshProUGUI starCountText;
 	public Animator bonusAlertAnimator;
 
-	private static bool addBonusText;
-
 	public static bool isGameOver;
 	public static bool isPaused;
+	public static bool isSoundOn;
+
+	private static AudioSource backgroundMusic;
+	private static AudioSource playerSF;
+
+	private static bool addBonusText;
+
 	private static int starsCount;
 	private static int missilesDestroyed;
 
@@ -21,15 +27,23 @@ public class GameScript : MonoBehaviour {
 	private int bonusPoints;
 	private int totalPoints;
 
+	private static bool startPlayerSF;
+
 	private void Start() {
 		Time.timeScale = 1;
 
+		addBonusText = false;
 		isGameOver = false;
 		isPaused = true;
-		addBonusText = false;
+		isSoundOn = true;
+
+		startPlayerSF = false;
 
 		starsCount = 0;
 		missilesDestroyed = 0;
+
+		backgroundMusic = this.GetComponent<AudioSource>();
+		playerSF = GameObject.Find("Player").GetComponent<AudioSource>();
 	}
 
 	private void Update() {
@@ -41,6 +55,12 @@ public class GameScript : MonoBehaviour {
 			if (addBonusText) {
 				bonusAlertAnimator.SetTrigger("addBonus");
 				addBonusText = false;
+			}
+
+			if (startPlayerSF) {
+				playerSF.volume = 0;
+				playerSF.Play();
+				StartCoroutine(StartPlayerSound());
 			}
 		} else {
 			if (player != null) {
@@ -72,15 +92,40 @@ public class GameScript : MonoBehaviour {
 
 	public static void StartGame() {
 		isPaused = false;
+
+		if (isSoundOn) {
+			startPlayerSF = true;
+		}
 		Time.timeScale = 1;
 	}
 
 	public static void PauseGame() {
 		isPaused = true;
+		playerSF.Pause();
 		Time.timeScale = 0;
 	}
 
 	public static void GoHome() {
 		SceneManager.LoadScene("GameScene");
+	}
+
+	public static void MuteSound() {
+		backgroundMusic.Pause();
+		playerSF.Pause();
+		isSoundOn = false;
+	}
+
+	public static void SoundOn() {
+		backgroundMusic.UnPause();
+		playerSF.UnPause();
+		isSoundOn = true;
+	}
+
+	private IEnumerator StartPlayerSound() {
+		startPlayerSF = false;
+		while (playerSF.volume < 0.01f) {
+			playerSF.volume += 0.001f;
+			yield return new WaitForSeconds(0.5f);
+		}
 	}
 }

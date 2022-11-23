@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-	public GameObject propBlured;
 	private Rigidbody rb;
 	private Animator animator;
 
