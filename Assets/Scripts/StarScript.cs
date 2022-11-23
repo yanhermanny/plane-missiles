@@ -18,8 +18,17 @@ public class StarScript : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
-			Destroy(this.gameObject);
-			GameScript.AddStar();
+			CollectStar();
 		}
+	}
+
+	private void CollectStar() {
+		this.GetComponent<AudioSource>().Play();
+		Animator starAnimator = this.GetComponent<Animator>();
+		starAnimator.SetTrigger("starCollected");
+
+		GameScript.AddStar();
+
+		Destroy(this.gameObject, 2);
 	}
 }

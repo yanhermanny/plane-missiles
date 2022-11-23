@@ -64,14 +64,31 @@ public class GameScript : MonoBehaviour {
 			}
 		} else {
 			if (player != null) {
-				Instantiate(playerExplosion, player.transform.position, playerExplosion.transform.rotation);
-				Destroy(player, 0.2f);
+				StartCoroutine(DestroyPlayer());
 			}
 
 			CalculatePoints();
 			if (TimerScript.GetTimer() - timerPoints >= 2.5f) {
 				CanvasScript.ShowGameOver(timerPoints, starPoints, bonusPoints, totalPoints);
 			}
+		}
+	}
+
+	private IEnumerator StartPlayerSound() {
+		startPlayerSF = false;
+		while (playerSF.volume < 0.01f) {
+			playerSF.volume += 0.001f;
+			yield return new WaitForSeconds(0.5f);
+		}
+	}
+
+	private IEnumerator DestroyPlayer() {
+		Vector3 lastPosition = player.transform.position;
+		Destroy(player);
+
+		for (int i=0; i<2; i++) {
+			Instantiate(playerExplosion, lastPosition, playerExplosion.transform.rotation);
+			yield return new WaitForSeconds(1.5f);
 		}
 	}
 
@@ -119,13 +136,5 @@ public class GameScript : MonoBehaviour {
 		backgroundMusic.UnPause();
 		playerSF.UnPause();
 		isSoundOn = true;
-	}
-
-	private IEnumerator StartPlayerSound() {
-		startPlayerSF = false;
-		while (playerSF.volume < 0.01f) {
-			playerSF.volume += 0.001f;
-			yield return new WaitForSeconds(0.5f);
-		}
 	}
 }
