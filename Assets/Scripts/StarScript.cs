@@ -23,7 +23,10 @@ public class StarScript : MonoBehaviour {
 	}
 
 	private void CollectStar() {
-		this.GetComponent<AudioSource>().Play();
+		if (GameScript.isSoundOn) {
+			this.GetComponent<AudioSource>().Play();
+		}
+
 		Animator starAnimator = this.GetComponent<Animator>();
 		starAnimator.SetTrigger("starCollected");
 

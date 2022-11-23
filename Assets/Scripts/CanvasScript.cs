@@ -15,9 +15,13 @@ public class CanvasScript : MonoBehaviour {
 	public TextMeshProUGUI starPointsText;
 	public TextMeshProUGUI bonusPointsText;
 	public TextMeshProUGUI totalPointsText;
+
 	public Button soundButton;
 	public Sprite soundOnImage;
 	public Sprite soundOffImage;
+	public Button musicButton;
+	public Sprite musicOnImage;
+	public Sprite musicOffImage;
 
 	private static int timerPoints;
 	private static int starPoints;
@@ -85,6 +89,16 @@ public class CanvasScript : MonoBehaviour {
 		} else {
 			GameScript.SoundOn();
 			soundButton.image.sprite = soundOnImage;
+		}
+	}
+
+	public void MusicButtonClick() {
+		if (GameScript.isMusicOn) {
+			GameScript.MuteMusic();
+			musicButton.image.sprite = musicOffImage;
+		} else {
+			GameScript.MusicOn();
+			musicButton.image.sprite = musicOnImage;
 		}
 	}
 

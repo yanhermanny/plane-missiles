@@ -13,6 +13,7 @@ public class GameScript : MonoBehaviour {
 	public static bool isGameOver;
 	public static bool isPaused;
 	public static bool isSoundOn;
+	public static bool isMusicOn;
 
 	private static AudioSource backgroundMusic;
 	private static AudioSource playerSF;
@@ -36,6 +37,7 @@ public class GameScript : MonoBehaviour {
 		isGameOver = false;
 		isPaused = true;
 		isSoundOn = true;
+		isMusicOn = true;
 
 		startPlayerSF = false;
 
@@ -87,7 +89,10 @@ public class GameScript : MonoBehaviour {
 		Destroy(player);
 
 		for (int i=0; i<2; i++) {
-			Instantiate(playerExplosion, lastPosition, playerExplosion.transform.rotation);
+			GameObject explosion = Instantiate(playerExplosion, lastPosition, playerExplosion.transform.rotation);
+			if (!isSoundOn) {
+				explosion.GetComponent<AudioSource>().enabled = false;
+			}
 			yield return new WaitForSeconds(1.5f);
 		}
 	}
@@ -127,7 +132,6 @@ public class GameScript : MonoBehaviour {
 	}
 
 	public static void MuteSound() {
-		backgroundMusic.Pause();
 		playerSF.Pause();
 		isSoundOn = false;
 	}
@@ -136,5 +140,15 @@ public class GameScript : MonoBehaviour {
 		backgroundMusic.UnPause();
 		playerSF.UnPause();
 		isSoundOn = true;
+	}
+
+	public static void MuteMusic() {
+		backgroundMusic.Pause();
+		isMusicOn = false;
+	}
+
+	public static void MusicOn() {
+		backgroundMusic.UnPause();
+		isMusicOn = true;
 	}
 }

@@ -21,6 +21,10 @@ public class MissileScript : MonoBehaviour {
 		rb = this.GetComponent<Rigidbody>();
 		animator = this.GetComponent<Animator>();
 
+		if (!GameScript.isSoundOn) {
+			this.GetComponent<AudioSource>().enabled = false;
+		}
+
 		startTimerSmokeTrail = TimerScript.GetTimer();
 		startTimerMissile = TimerScript.GetTimer();
 	}
@@ -71,7 +75,10 @@ public class MissileScript : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Enemy") {
-			Instantiate(missileExplosion, this.transform.position, missileExplosion.transform.rotation);
+			GameObject explosion = Instantiate(missileExplosion, this.transform.position, missileExplosion.transform.rotation);
+			if (!GameScript.isSoundOn) {
+				explosion.GetComponent<AudioSource>().enabled = false;
+			}
 			Destroy(other.gameObject);
 			Destroy(this.gameObject);
 
