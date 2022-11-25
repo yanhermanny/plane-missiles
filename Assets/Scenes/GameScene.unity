@@ -130,11 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5744769069628785009, guid: 8700999c980d4ad4e9fc2c034584d972,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9019885253467801840, guid: 8700999c980d4ad4e9fc2c034584d972,
         type: 3}
       propertyPath: m_Name
@@ -2451,6 +2446,11 @@ MonoBehaviour:
   - {fileID: 1418764336787823501, guid: 7eaf0b2cd8f4eb34ca0540e2d3221dca, type: 3}
   - {fileID: 1418764336787823501, guid: 7eaf0b2cd8f4eb34ca0540e2d3221dca, type: 3}
   - {fileID: 1418764336787823501, guid: 7eaf0b2cd8f4eb34ca0540e2d3221dca, type: 3}
+  - {fileID: 1418764336787823501, guid: 7eaf0b2cd8f4eb34ca0540e2d3221dca, type: 3}
+  - {fileID: 1418764336787823501, guid: 7eaf0b2cd8f4eb34ca0540e2d3221dca, type: 3}
+  - {fileID: 1418764336787823501, guid: 7eaf0b2cd8f4eb34ca0540e2d3221dca, type: 3}
+  - {fileID: 7408557678239523062, guid: 52c9ad71da96b2d43a5315e9bccae4e9, type: 3}
+  - {fileID: 7408557678239523062, guid: 52c9ad71da96b2d43a5315e9bccae4e9, type: 3}
   - {fileID: 7408557678239523062, guid: 52c9ad71da96b2d43a5315e9bccae4e9, type: 3}
   - {fileID: 7408557678239523062, guid: 52c9ad71da96b2d43a5315e9bccae4e9, type: 3}
   - {fileID: 7408557678239523062, guid: 52c9ad71da96b2d43a5315e9bccae4e9, type: 3}
