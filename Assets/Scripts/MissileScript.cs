@@ -21,7 +21,7 @@ public class MissileScript : MonoBehaviour {
 		rb = this.GetComponent<Rigidbody>();
 		animator = this.GetComponent<Animator>();
 
-		if (!GameScript.isSoundOn) {
+		if (!GameScript.isSFXOn) {
 			this.GetComponent<AudioSource>().enabled = false;
 		}
 
@@ -76,7 +76,7 @@ public class MissileScript : MonoBehaviour {
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Enemy") {
 			GameObject explosion = Instantiate(missileExplosion, this.transform.position, missileExplosion.transform.rotation);
-			if (!GameScript.isSoundOn) {
+			if (!GameScript.isSFXOn) {
 				explosion.GetComponent<AudioSource>().enabled = false;
 			}
 			Destroy(other.gameObject);

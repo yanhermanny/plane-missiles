@@ -23,7 +23,7 @@ public class StarScript : MonoBehaviour {
 	}
 
 	private void CollectStar() {
-		if (GameScript.isSoundOn) {
+		if (GameScript.isSFXOn) {
 			this.GetComponent<AudioSource>().Play();
 		}
 

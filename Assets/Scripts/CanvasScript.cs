@@ -16,9 +16,9 @@ public class CanvasScript : MonoBehaviour {
 	public TextMeshProUGUI bonusPointsText;
 	public TextMeshProUGUI totalPointsText;
 
-	public Button soundButton;
-	public Sprite soundOnImage;
-	public Sprite soundOffImage;
+	public Button sfxButton;
+	public Sprite sfxOnImage;
+	public Sprite sfxOffImage;
 	public Button musicButton;
 	public Sprite musicOnImage;
 	public Sprite musicOffImage;
@@ -38,6 +38,18 @@ public class CanvasScript : MonoBehaviour {
 		gameOverPanel.SetActive(false);
 
 		showGameOver = false;
+
+		if (GameScript.isSFXOn) {
+			sfxButton.image.sprite = sfxOnImage;
+		} else {
+			sfxButton.image.sprite = sfxOffImage;
+		}
+
+		if (GameScript.isMusicOn) {
+			musicButton.image.sprite = musicOnImage;
+		} else {
+			musicButton.image.sprite = musicOffImage;
+		}
     }
 
 	public void Update() {
@@ -52,8 +64,9 @@ public class CanvasScript : MonoBehaviour {
 		}
 	}
 
-	public void StartButtonClick() {
+	public void PlayButtonClick() {
 		homePanel.SetActive(false);
+		pausePanel.SetActive(false);
 		playerControlsPanel.SetActive(true);
 		hudPanel.SetActive(true);
 
@@ -65,30 +78,25 @@ public class CanvasScript : MonoBehaviour {
 	}
 
 	public void PauseButtonClick() {
-		pausePanel.SetActive(true);
-		playerControlsPanel.SetActive(false);
+		if (!GameScript.isGameOver) {
+			pausePanel.SetActive(true);
+			playerControlsPanel.SetActive(false);
 
-		GameScript.PauseGame();
-	}
-
-	public void UnpauseButtonClick() {
-		pausePanel.SetActive(false);
-		playerControlsPanel.SetActive(true);
-
-		GameScript.StartGame();
+			GameScript.PauseGame();
+		}
 	}
 
 	public void HomeButtonClick() {
 		GameScript.GoHome();
 	}
 
-	public void SoundButtonClick() {
-		if (GameScript.isSoundOn) {
-			GameScript.MuteSound();
-			soundButton.image.sprite = soundOffImage;
+	public void SFXButtonClick() {
+		if (GameScript.isSFXOn) {
+			GameScript.MuteSFX();
+			sfxButton.image.sprite = sfxOffImage;
 		} else {
-			GameScript.SoundOn();
-			soundButton.image.sprite = soundOnImage;
+			GameScript.SFXOn();
+			sfxButton.image.sprite = sfxOnImage;
 		}
 	}
 

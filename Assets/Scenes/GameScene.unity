@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5744769069628785009, guid: 8700999c980d4ad4e9fc2c034584d972,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9019885253467801840, guid: 8700999c980d4ad4e9fc2c034584d972,
         type: 3}
       propertyPath: m_Name
@@ -1053,7 +1058,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7ae7de61b0acea343b1699df1160c3b6, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
@@ -2302,7 +2307,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1839472448}
         m_TargetAssemblyTypeName: CanvasScript, Assembly-CSharp
-        m_MethodName: StartButtonClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3015,7 +3020,7 @@ GameObject:
   - component: {fileID: 932229271}
   - component: {fileID: 932229270}
   m_Layer: 5
-  m_Name: SoundButton
+  m_Name: SFXButton
   m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3067,7 +3072,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1839472448}
         m_TargetAssemblyTypeName: CanvasScript, Assembly-CSharp
-        m_MethodName: SoundButtonClick
+        m_MethodName: SFXButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3482,7 +3487,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1839472448}
         m_TargetAssemblyTypeName: CanvasScript, Assembly-CSharp
-        m_MethodName: UnpauseButtonClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6251,9 +6256,9 @@ MonoBehaviour:
   starPointsText: {fileID: 59091070}
   bonusPointsText: {fileID: 200616217}
   totalPointsText: {fileID: 1834285758}
-  soundButton: {fileID: 932229268}
-  soundOnImage: {fileID: 21300000, guid: 007c9fb1209c08f40bced7670d6de4dd, type: 3}
-  soundOffImage: {fileID: 21300000, guid: faa2db2a6fbb5e148adb90ef6f53b49c, type: 3}
+  sfxButton: {fileID: 932229268}
+  sfxOnImage: {fileID: 21300000, guid: 007c9fb1209c08f40bced7670d6de4dd, type: 3}
+  sfxOffImage: {fileID: 21300000, guid: faa2db2a6fbb5e148adb90ef6f53b49c, type: 3}
   musicButton: {fileID: 373133128}
   musicOnImage: {fileID: 21300000, guid: 7a05bb79e6ff21c47933e0a87ec29116, type: 3}
   musicOffImage: {fileID: 21300000, guid: d24acda3ccc57c14e8159c2509ad1d65, type: 3}
