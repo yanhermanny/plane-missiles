@@ -136,6 +136,7 @@ public class GameScript : MonoBehaviour {
 
 	public static void GoHome() {
 		SceneManager.LoadScene("GameScene");
+		TimerScript.RestartTimer();
 	}
 
 	public static void MuteSFX() {

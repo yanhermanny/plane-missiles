@@ -57,7 +57,8 @@ public class MissileScript : MonoBehaviour {
 	}
 
 	private void InstantiateSmokeTrail() {
-		Instantiate(smokeTrail, this.transform.position, smokeTrail.transform.rotation);
+		Vector3 position = this.transform.position - new Vector3(0, 1, 0);
+		Instantiate(smokeTrail, position, smokeTrail.transform.rotation);
 	}
 
 	private void AimToPlayer() {

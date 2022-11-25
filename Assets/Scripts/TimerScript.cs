@@ -17,9 +17,9 @@ public class TimerScript : MonoBehaviour {
 	private IEnumerator CountTimer() {
 		while (true) {
 			if (!GameScript.isPaused) {
-				timer += 0.1f;
+				timer += Time.deltaTime;
 			}
-			yield return new WaitForSeconds(0.1f);
+			yield return null;
 		}
 	}
 
@@ -41,5 +41,9 @@ public class TimerScript : MonoBehaviour {
 
 	public static float GetTimer() {
 		return timer;
+	}
+
+	public static void RestartTimer() {
+		timer = 0;
 	}
 }
