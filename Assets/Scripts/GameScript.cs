@@ -60,7 +60,6 @@ public class GameScript : MonoBehaviour {
 			}
 
 			if (startPlayerSF) {
-				playerSF.volume = 0;
 				playerSF.Play();
 				StartCoroutine(StartPlayerSound());
 			}
@@ -78,8 +77,10 @@ public class GameScript : MonoBehaviour {
 
 	private IEnumerator StartPlayerSound() {
 		startPlayerSF = false;
-		while (playerSF.volume < 0.01f) {
-			playerSF.volume += 0.001f;
+
+		playerSF.volume = 0;
+		while (playerSF.volume < 0.4f) {
+			playerSF.volume += 0.01f;
 			yield return new WaitForSeconds(0.5f);
 		}
 	}
@@ -137,7 +138,6 @@ public class GameScript : MonoBehaviour {
 	}
 
 	public static void SoundOn() {
-		backgroundMusic.UnPause();
 		playerSF.UnPause();
 		isSoundOn = true;
 	}
