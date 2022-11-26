@@ -35,8 +35,6 @@ public class GameScript : MonoBehaviour {
 	private static bool saveScore;
 
 	private void Start() {
-
-		PlayerPrefs.SetString("playerName", "");
 		Time.timeScale = 1;
 
 		addBonusText = false;

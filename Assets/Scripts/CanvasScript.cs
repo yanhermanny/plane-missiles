@@ -73,11 +73,8 @@ public class CanvasScript : MonoBehaviour {
 	}
 
 	public void OkButtonClick() {
-		print("playerNameText: " + playerNameText.text);
-		print("PlayerPrefs.playerName: " + PlayerPrefs.GetString("playerName"));
 		if (!playerNameText.text.Equals("")) {
 			PlayerPrefs.SetString("playerName", playerNameText.text);
-			print("PlayerPrefs.playerName: " + PlayerPrefs.GetString("playerName"));
 			loginPanel.SetActive(false);
 		}
 	}
