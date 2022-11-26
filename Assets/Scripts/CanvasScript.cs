@@ -10,11 +10,13 @@ public class CanvasScript : MonoBehaviour {
 	public GameObject pausePanel;
 	public GameObject scoresPanel;
 	public GameObject gameOverPanel;
+	public GameObject loginPanel;
 
 	public TextMeshProUGUI timerPointsText;
 	public TextMeshProUGUI starPointsText;
 	public TextMeshProUGUI bonusPointsText;
 	public TextMeshProUGUI totalPointsText;
+	public TMP_InputField playerNameText;
 
 	public Button sfxButton;
 	public Sprite sfxOnImage;
@@ -50,6 +52,12 @@ public class CanvasScript : MonoBehaviour {
 		} else {
 			musicButton.image.sprite = musicOffImage;
 		}
+
+		if (PlayerPrefs.GetString("playerName").Equals("")) {
+			loginPanel.SetActive(true);
+		} else {
+			loginPanel.SetActive(false);
+		}
     }
 
 	public void Update() {
@@ -61,6 +69,16 @@ public class CanvasScript : MonoBehaviour {
 
 			playerControlsPanel.SetActive(false);
 			gameOverPanel.SetActive(true);
+		}
+	}
+
+	public void OkButtonClick() {
+		print("playerNameText: " + playerNameText.text);
+		print("PlayerPrefs.playerName: " + PlayerPrefs.GetString("playerName"));
+		if (!playerNameText.text.Equals("")) {
+			PlayerPrefs.SetString("playerName", playerNameText.text);
+			print("PlayerPrefs.playerName: " + PlayerPrefs.GetString("playerName"));
+			loginPanel.SetActive(false);
 		}
 	}
 

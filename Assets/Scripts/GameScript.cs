@@ -10,6 +10,8 @@ public class GameScript : MonoBehaviour {
 	public TextMeshProUGUI starCountText;
 	public Animator bonusAlertAnimator;
 
+	public LootLocker_Sistema lootLockerScript;
+
 	public static bool isGameOver;
 	public static bool isPaused;
 	public static bool isSFXOn;
@@ -30,8 +32,11 @@ public class GameScript : MonoBehaviour {
 	private int totalPoints;
 
 	private static bool startPlayerSFX;
+	private static bool saveScore;
 
 	private void Start() {
+
+		PlayerPrefs.SetString("playerName", "");
 		Time.timeScale = 1;
 
 		addBonusText = false;
@@ -42,6 +47,7 @@ public class GameScript : MonoBehaviour {
 		isMusicOn = GetPlayerPrefBool("musicOn");
 
 		startPlayerSFX = false;
+		saveScore = true;
 
 		starsCount = 0;
 		missilesDestroyed = 0;
@@ -76,6 +82,10 @@ public class GameScript : MonoBehaviour {
 			}
 
 			CalculatePoints();
+			if (saveScore) {
+				lootLockerScript.EnviarPlacar(totalPoints);
+				saveScore = false;
+			}
 			if (TimerScript.GetTimer() - timerPoints >= 2.5f) {
 				CanvasScript.ShowGameOver(timerPoints, starPoints, bonusPoints, totalPoints);
 			}
