@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class MissileScript : MonoBehaviour {
 
+	// GameObjects
+	private GameObject player;
+
+	// Pefabs
 	public GameObject smokeTrail;
 	public GameObject missileExplosion;
 	public GameObject planeExplosion;
 
-	private GameObject player;
+	// Components
 	private Rigidbody rb;
 	private Animator animator;
+
+	// Scripts
+	private GameScript gameScript;
 
 	public float speed;
 	public float rotationSpeed;
@@ -18,6 +25,9 @@ public class MissileScript : MonoBehaviour {
 
 	private void Start() {
 		player = GameObject.Find("Player");
+
+		gameScript = GameObject.Find("GameController").GetComponent<GameScript>();
+
 		rb = this.GetComponent<Rigidbody>();
 		animator = this.GetComponent<Animator>();
 
@@ -56,17 +66,17 @@ public class MissileScript : MonoBehaviour {
 		rb.velocity = (this.transform.up) * speed;
 	}
 
-	private void InstantiateSmokeTrail() {
-		Vector3 position = this.transform.position - new Vector3(0, 1, 0);
-		Instantiate(smokeTrail, position, smokeTrail.transform.rotation);
-	}
-
 	private void AimToPlayer() {
 		Vector3 direction = (player.transform.position - this.transform.position).normalized;
 		float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 		Quaternion rotateToTarget = Quaternion.Euler(90, angle, 0);
 
 		this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotateToTarget, Time.deltaTime * rotationSpeed);
+	}
+
+	private void InstantiateSmokeTrail() {
+		Vector3 position = this.transform.position - new Vector3(0, 1, 0);
+		Instantiate(smokeTrail, position, smokeTrail.transform.rotation);
 	}
 
 	private void EndMissile() {
@@ -80,14 +90,13 @@ public class MissileScript : MonoBehaviour {
 			if (!GameScript.isSFXOn) {
 				explosion.GetComponent<AudioSource>().enabled = false;
 			}
-			Destroy(other.gameObject);
 			Destroy(this.gameObject);
 
-			GameScript.AddMissilesDestroyed();
+			gameScript.AddMissilesDestroyed();
 		}
 		else if (other.tag == "Player") {
 			Destroy(this.gameObject);
-			GameScript.isGameOver = true;
+			gameScript.GameOver();
 		}
 	}
 }

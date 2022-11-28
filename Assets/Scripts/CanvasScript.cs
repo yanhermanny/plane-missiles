@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class CanvasScript : MonoBehaviour {
 
+	// Panels
 	public GameObject homePanel;
 	public GameObject playerControlsPanel;
 	public GameObject hudPanel;
@@ -12,25 +13,27 @@ public class CanvasScript : MonoBehaviour {
 	public GameObject gameOverPanel;
 	public GameObject loginPanel;
 
+	// Script
+	public GameScript gameScript;
+	public LeaderborderScript lootLockerScript;
+
+	// Text fields
+	public TMP_InputField playerNameText;
 	public TextMeshProUGUI timerPointsText;
 	public TextMeshProUGUI starPointsText;
 	public TextMeshProUGUI bonusPointsText;
 	public TextMeshProUGUI totalPointsText;
-	public TMP_InputField playerNameText;
+	public TextMeshProUGUI starCountText;
 
+	// Sound Buttons
 	public Button sfxButton;
+	public Button musicButton;
+
+	// UI Images
 	public Sprite sfxOnImage;
 	public Sprite sfxOffImage;
-	public Button musicButton;
 	public Sprite musicOnImage;
 	public Sprite musicOffImage;
-
-	private static int timerPoints;
-	private static int starPoints;
-	private static int bonusPoints;
-	private static int totalPoints;
-
-	private static bool showGameOver;
 
     private void Start() {
 		homePanel.SetActive(true);
@@ -39,8 +42,6 @@ public class CanvasScript : MonoBehaviour {
 		pausePanel.SetActive(false);
 		gameOverPanel.SetActive(false);
 		scoresPanel.SetActive(false);
-
-		showGameOver = false;
 
 		if (GameScript.isSFXOn) {
 			sfxButton.image.sprite = sfxOnImage;
@@ -61,18 +62,6 @@ public class CanvasScript : MonoBehaviour {
 		}
     }
 
-	public void Update() {
-		if (showGameOver) {
-			timerPointsText.text = "+" + timerPoints.ToString();
-			starPointsText.text = "+" + starPoints.ToString();
-			bonusPointsText.text = "+" + bonusPoints.ToString();
-			totalPointsText.text = totalPoints.ToString();
-
-			playerControlsPanel.SetActive(false);
-			gameOverPanel.SetActive(true);
-		}
-	}
-
 	public void OkButtonClick() {
 		if (!playerNameText.text.Equals("")) {
 			PlayerPrefs.SetString("playerName", playerNameText.text);
@@ -86,16 +75,16 @@ public class CanvasScript : MonoBehaviour {
 		playerControlsPanel.SetActive(true);
 		hudPanel.SetActive(true);
 
-		GameScript.StartGame();
+		gameScript.StartGame();
 	}
 
 	public void ScoresButtonClick() {
 		scoresPanel.SetActive(true);
-		GameScript.ShowScores();
+		StartCoroutine(lootLockerScript.LoadScores());
 	}
 
 	public void BackButtonClick() {
-		ScoresPanelScript.ClearScoresList();
+		lootLockerScript.ClearLeaderboard();
 		scoresPanel.SetActive(false);
 	}
 
@@ -104,40 +93,43 @@ public class CanvasScript : MonoBehaviour {
 			pausePanel.SetActive(true);
 			playerControlsPanel.SetActive(false);
 
-			GameScript.PauseGame();
+			gameScript.PauseGame();
 		}
 	}
 
 	public void HomeButtonClick() {
-		GameScript.GoHome();
+		gameScript.GoHome();
 	}
 
 	public void SFXButtonClick() {
+		gameScript.TurnOnOffSFX();
 		if (GameScript.isSFXOn) {
-			GameScript.MuteSFX();
-			sfxButton.image.sprite = sfxOffImage;
-		} else {
-			GameScript.SFXOn();
 			sfxButton.image.sprite = sfxOnImage;
+		} else {
+			sfxButton.image.sprite = sfxOffImage;
 		}
 	}
 
 	public void MusicButtonClick() {
+		gameScript.TurnOnOffBackgroundMusic();
 		if (GameScript.isMusicOn) {
-			GameScript.MuteMusic();
-			musicButton.image.sprite = musicOffImage;
-		} else {
-			GameScript.MusicOn();
 			musicButton.image.sprite = musicOnImage;
+		} else {
+			musicButton.image.sprite = musicOffImage;
 		}
 	}
 
-	public static void ShowGameOver(int timerPointsValue, int starPointsValue, int bonusPointsValue, int totalPointsValue) {
-		timerPoints = timerPointsValue;
-		starPoints = starPointsValue;
-		bonusPoints = bonusPointsValue;
-		totalPoints = totalPointsValue;
+	public void ShowGameOver(int timerPoints, int starPoints, int bonusPoints, int totalPoints) {
+        timerPointsText.text = "+" + timerPoints.ToString();
+        starPointsText.text = "+" + starPoints.ToString();
+        bonusPointsText.text = "+" + bonusPoints.ToString();
+        totalPointsText.text = totalPoints.ToString();
 
-		showGameOver = true;
+		playerControlsPanel.SetActive(false);
+		gameOverPanel.SetActive(true);
+	}
+
+	public void UpdateStarCountText(int value) {
+		starCountText.text = string.Format("x {0:00}", value);
 	}
 }

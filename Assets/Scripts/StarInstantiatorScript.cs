@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class StarInstantiatorScript : MonoBehaviour {
 
-	public GameObject[] vetorPositions;
 	public GameObject star;
+	public GameObject[] vetorPositions;
 
 	private float startTimer;
 	private int interval;
@@ -17,7 +17,7 @@ public class StarInstantiatorScript : MonoBehaviour {
 		if (!GameScript.isPaused && !GameScript.isGameOver && (TimerScript.GetTimer() - startTimer >= interval)) {
 			InstantiateStar();
 
-			interval = Random.Range(45, 60);
+			interval = Random.Range(40, 60);
 			startTimer = TimerScript.GetTimer();
 		}
 	}
