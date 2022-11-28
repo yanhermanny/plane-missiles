@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,8 +10,6 @@ public class GameScript : MonoBehaviour {
 	public GameObject playerExplosion;
 	public TextMeshProUGUI starCountText;
 	public Animator bonusAlertAnimator;
-
-	public LootLocker_Sistema lootLockerScript;
 
 	public static bool isGameOver;
 	public static bool isPaused;
@@ -33,6 +32,7 @@ public class GameScript : MonoBehaviour {
 
 	private static bool startPlayerSFX;
 	private static bool saveScore;
+	private static bool loadScore;
 
 	private void Start() {
 		Time.timeScale = 1;
@@ -46,6 +46,7 @@ public class GameScript : MonoBehaviour {
 
 		startPlayerSFX = false;
 		saveScore = true;
+		loadScore = false;
 
 		starsCount = 0;
 		missilesDestroyed = 0;
@@ -81,12 +82,17 @@ public class GameScript : MonoBehaviour {
 
 			CalculatePoints();
 			if (saveScore) {
-				lootLockerScript.EnviarPlacar(totalPoints);
+				LootLockerScript.SaveScore(totalPoints);
 				saveScore = false;
 			}
 			if (TimerScript.GetTimer() - timerPoints >= 2.5f) {
 				CanvasScript.ShowGameOver(timerPoints, starPoints, bonusPoints, totalPoints);
 			}
+		}
+
+		if (loadScore) {
+			StartCoroutine(LoadAndShowScores());
+			loadScore = false;
 		}
 	}
 
@@ -193,5 +199,15 @@ public class GameScript : MonoBehaviour {
 			return true;
 		}
 		return false;
+	}
+
+	public static void ShowScores() {
+		loadScore = true;
+	}
+
+	private IEnumerator LoadAndShowScores() {
+		List<RankingCard> scores = LootLockerScript.LoadScores();
+		yield return new WaitForSeconds(0.5f);
+		ScoresPanelScript.ShowScores(scores);
 	}
 }

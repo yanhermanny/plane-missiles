@@ -38,6 +38,7 @@ public class CanvasScript : MonoBehaviour {
 		hudPanel.SetActive(false);
 		pausePanel.SetActive(false);
 		gameOverPanel.SetActive(false);
+		scoresPanel.SetActive(false);
 
 		showGameOver = false;
 
@@ -89,7 +90,13 @@ public class CanvasScript : MonoBehaviour {
 	}
 
 	public void ScoresButtonClick() {
-		// TODO:
+		scoresPanel.SetActive(true);
+		GameScript.ShowScores();
+	}
+
+	public void BackButtonClick() {
+		ScoresPanelScript.ClearScoresList();
+		scoresPanel.SetActive(false);
 	}
 
 	public void PauseButtonClick() {
