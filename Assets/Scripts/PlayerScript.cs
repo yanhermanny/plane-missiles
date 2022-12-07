@@ -14,22 +14,22 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
-		if (!GameScript.isPaused) {
+		if (!GameScript.isPaused && !GameScript.isGameOver) {
 			MoveForward();
-		}
 
-		if (LR_ButtonsScript.lButtonPressed) {
-			animator.SetBool("isTurningLeft", true);
-			TurnPlane(-angle);
-		} else {
-			animator.SetBool("isTurningLeft", false);
-		}
+			if (LR_ButtonsScript.lButtonPressed) {
+				animator.SetBool("isTurningLeft", true);
+				TurnPlane(-angle);
+			} else {
+				animator.SetBool("isTurningLeft", false);
+			}
 
-		if (LR_ButtonsScript.rButtonPressed) {
-			animator.SetBool("isTurningRight", true);
-			TurnPlane(angle);
-		} else {
-			animator.SetBool("isTurningRight", false);
+			if (LR_ButtonsScript.rButtonPressed) {
+				animator.SetBool("isTurningRight", true);
+				TurnPlane(angle);
+			} else {
+				animator.SetBool("isTurningRight", false);
+			}
 		}
 	}
 

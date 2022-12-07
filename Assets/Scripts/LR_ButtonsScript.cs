@@ -6,6 +6,11 @@ public class LR_ButtonsScript : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	public static bool lButtonPressed;
 	public static bool rButtonPressed;
 
+	private void Start() {
+		lButtonPressed = false;
+		rButtonPressed = false;
+	}
+
 	public void OnPointerDown(PointerEventData eventData) {
 		if (this.gameObject.name.Equals("LeftButton")) {
 			lButtonPressed = true;
